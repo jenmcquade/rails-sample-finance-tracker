@@ -82,6 +82,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (1.1.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -252,6 +253,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise
+  devise-bootstrap-views (~> 1.0)
   guard-livereload (~> 2.5)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
