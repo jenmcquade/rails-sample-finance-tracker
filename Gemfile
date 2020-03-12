@@ -26,6 +26,9 @@ gem 'devise'
 # Devise Boostrap Form Styling
 gem 'devise-bootstrap-views', '~> 1.0'
 
+# IEX Stock Exchange Client for Ruby
+gem 'iex-ruby-client'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
