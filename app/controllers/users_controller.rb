@@ -12,8 +12,9 @@ class UsersController < ApplicationController
 
   def search
     if params[:friend].present?
-      @friend = User.where(email: params[:friend]).first
-      if @friend
+      @friends = User.search(params[:friend])
+      @friends = current_user.except_current_user(@friends)
+      if @friends
         js_response(nil)
       else
         js_response(ALERT_VALID_FRIEND)
