@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   ALERT_EMPTY_SEARCH = "Please enter a name or email to search"
 
   def my_portfolio
+    @user = current_user
     @tracked_stocks = current_user.stocks
   end
 
@@ -22,6 +23,11 @@ class UsersController < ApplicationController
     else
       js_response(ALERT_EMPTY_SEARCH)
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    @tracked_stocks = @user.stocks
   end
 
   private

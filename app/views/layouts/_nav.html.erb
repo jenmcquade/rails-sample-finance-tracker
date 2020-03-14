@@ -23,9 +23,6 @@
                 <%= fa_icon 'edit' %>&nbsp;
                 Edit profile
               <% end %>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
         </ul>
@@ -38,10 +35,6 @@
             <%= link_to "Logout", destroy_user_session_path, class: "btn btn-danger logout-button", method: :delete %>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     <% end %>
   </div>
