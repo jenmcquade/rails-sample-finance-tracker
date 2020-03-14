@@ -1,0 +1,21 @@
+<div class="results-block">
+  <%= render 'layouts/messages' %>
+</div>
+
+<% if @friend %>
+  <div class="card card-header results-block">
+    <strong>Email: </strong> <%= @friend.email %>
+    <strong>Name: </strong> <%= @friend.full_name %>
+    <% if current_user.can_track_friend?(@friend) %>
+      <%= link_to 'Add friend', 
+        friendships_path(user: current_user,
+          friend: @friend),
+        class: "btn btn-xs btn-success",
+        method: :post %>
+    <% else %>
+      <span class="badge badge-secondary">
+        You are already tracking <%= @friend.email %>
+      </span>
+    <% end %>
+  </div>
+<% end %>

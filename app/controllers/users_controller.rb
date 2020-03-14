@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  ALERT_VALID_FRIEND = "Friend not found"
+  ALERT_EMPTY_SEARCH = "Please enter a name or email to search"
+
   def my_portfolio
     @tracked_stocks = current_user.stocks
   end
@@ -8,7 +11,16 @@ class UsersController < ApplicationController
   end
 
   def search
-    render json: params[:friend]
+    if params[:friend].present?
+      @friend = User.where(email: params[:friend]).first
+      if @friend
+        js_response(nil)
+      else
+        js_response(ALERT_VALID_FRIEND)
+      end
+    else
+      js_response(ALERT_EMPTY_SEARCH)
+    end
   end
 
   private
@@ -16,7 +28,7 @@ class UsersController < ApplicationController
   def js_response (alert)
     flash.now[:alert] = alert unless alert.nil?
     respond_to do |format|
-      format.js { render partial: 'users/stock_result' }
+      format.js { render partial: 'users/friend_result' }
     end
   end
 
